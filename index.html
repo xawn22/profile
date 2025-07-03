@@ -107,13 +107,13 @@
   <div class="container">
     <div class="header">MANAGE BY SETIAWAN</div>
     <div class="content">
-      <div class="metric"><div class="label">CPU Usage</div><div class="value" id="cpu">-</div></div>
-      <div class="metric"><div class="label">Uptime</div><div class="value" id="uptime">-</div></div>
-      <div class="metric"><div class="label">ISP</div><div class="value" id="isp">-</div></div>
-      <div class="metric"><div class="label">Region</div><div class="value" id="region">-</div></div>
-      <div class="metric"><div class="label">Tanggal</div><div class="value" id="tanggal">-</div></div>
-      <div class="metric"><div class="label">Bulan</div><div class="value" id="bulan">-</div></div>
-      <div class="metric"><div class="label">Jam</div><div class="value" id="jam">-</div></div>
+      <div class="metric"><div class="label">🔵CPU Usage</div><div class="value" id="cpu">-</div></div>
+      <div class="metric"><div class="label">🔵Uptime Server</div><div class="value" id="uptime">-</div></div>
+      <div class="metric"><div class="label">🔵ISP Server</div><div class="value" id="isp">-</div></div>
+      <div class="metric"><div class="label">🔵Region</div><div class="value" id="region">-</div></div>
+      <div class="metric"><div class="label">🔵Tanggal</div><div class="value" id="tanggal">-</div></div>
+      <div class="metric"><div class="label">🔵Bulan</div><div class="value" id="bulan">-</div></div>
+      <div class="metric"><div class="label">🔵Jam</div><div class="value" id="jam">-</div></div>
       <div class="status">STATUS SERVER : <span id="state" class="down">Checking...</span></div>
       <div class="buttons">
         <a class="whatsapp" href="#" target="_blank">💬 WhatsApp</a>
@@ -135,7 +135,7 @@
     const jamEl = document.getElementById("jam");
     const stateEl = document.getElementById("state");
 
-    const vpsUrl = "http:/sctes.myawan.web.id:5000/status";
+    const vpsUrl = "http:/sg5.myawan.web.id:5000/status";
 
     async function updateStatus() {
       try {
