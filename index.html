@@ -92,9 +92,9 @@
     .note {
       text-align: center;
       margin: 10px 20px 20px;
-      font-size: 1.3em;  /* diperbesar */
+      font-size: 1.3em;
       font-style: italic;
-      font-weight: 700;   /* ditebalkan */
+      font-weight: 700;
       color: #333;
     }
     @keyframes fadein {
@@ -135,24 +135,29 @@
     const jamEl = document.getElementById("jam");
     const stateEl = document.getElementById("state");
 
-    const vpsUrl = "http://sg5.myawan.web.id:5000/status";
+    const vpsUrl = "http://sctes.myawan.web.id:5000/status";
 
     async function updateStatus() {
       try {
         const response = await fetch(vpsUrl);
+        if (!response.ok) {
+          throw new Error(`HTTP Error ${response.status}`);
+        }
         const data = await response.json();
+        console.log("API Data:", data);
 
         cpuEl.textContent = data.cpu + " %";
-        uptimeEl.textContent = formatUptime(data.uptime);
-        ispEl.textContent = data.isp;
-        regionEl.textContent = data.region;
-        tanggalEl.textContent = data.tanggal;
-        bulanEl.textContent = data.bulan;
-        jamEl.textContent = data.jam;
+        uptimeEl.textContent = formatUptime(data.uptime || 0);
+        ispEl.textContent = data.isp || "-";
+        regionEl.textContent = data.region || "-";
+        tanggalEl.textContent = data.tanggal || "-";
+        bulanEl.textContent = data.bulan || "-";
+        jamEl.textContent = data.jam || "-";
 
         stateEl.textContent = "RUNNING";
         stateEl.className = "up";
       } catch (error) {
+        console.error("Gagal mengambil data:", error);
         stateEl.textContent = "OFFLINE";
         stateEl.className = "down";
         cpuEl.textContent = "-";
@@ -179,4 +184,4 @@
     setInterval(updateStatus, 5000);
   </script>
 </body>
-</html
+</html>
