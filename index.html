@@ -122,11 +122,11 @@
     const bulanEl = document.getElementById("bulan");
     const jamEl = document.getElementById("jam");
     const stateEl = document.getElementById("state");
-
     const waBtn = document.querySelector(".whatsapp");
     const tgBtn = document.querySelector(".telegram");
 
-    const vpsUrl = "http://113.29.231.183:5000/status";
+    // Ganti ini dengan IP VPS kamu
+    const vpsUrl = "http://sctes.myawan.web.id:5000/status";
 
     async function updateStatus() {
       try {
@@ -144,12 +144,11 @@
         stateEl.textContent = "RUNNING";
         stateEl.className = "up";
 
-        // update tombol dinamis
         waBtn.href = data.wa_link;
         tgBtn.href = data.tg_link;
 
       } catch (error) {
-        console.error("Error fetching status:", error);
+        console.error("Error fetching:", error);
         stateEl.textContent = "OFFLINE";
         stateEl.className = "down";
 
